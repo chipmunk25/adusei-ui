@@ -3,6 +3,7 @@ import reactLogo from "./assets/react.svg";
 import viteLogo from "/vite.svg";
 import "./App.css";
 import { Button } from "adusei-ui";
+import "adusei-ui/dist/style.css";
 
 function App() {
   const [count, setCount] = useState(0);
