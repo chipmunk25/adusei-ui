@@ -1,5 +1,5 @@
 import "./App.css";
-import { Button, DatePicker, DateTimePicker } from "adusei-ui";
+import { Button, DatePicker, DateTimePicker, Layout } from "adusei-ui";
 import "adusei-ui/dist/style.css";
 import { useState } from "react";
 
@@ -8,7 +8,7 @@ function App() {
   const [open, setOpen] = useState(false);
   return (
     <>
-      <div className="space-y-12">
+      <Layout userInfo={{ name: "test", menuItems: [] }}>
         <Button variant={"secondary"} className="rounded-md">
           button test
         </Button>
@@ -26,7 +26,7 @@ function App() {
         />
 
         <DateTimePicker />
-      </div>
+      </Layout>
     </>
   );
 }

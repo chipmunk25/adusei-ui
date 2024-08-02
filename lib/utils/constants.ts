@@ -24,3 +24,5 @@ export enum InputTypes {
   SUBMIT = "submit",
   COLOR = "color",
 }
+
+export const HEADER_HEIGHT_CLASS = "h-10";
