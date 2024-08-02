@@ -1,36 +1,32 @@
-import { useState } from "react";
-import reactLogo from "./assets/react.svg";
-import viteLogo from "/vite.svg";
 import "./App.css";
-import { Button } from "adusei-ui";
+import { Button, DatePicker, DateTimePicker } from "adusei-ui";
 import "adusei-ui/dist/style.css";
+import { useState } from "react";
 
 function App() {
-  const [count, setCount] = useState(0);
-
+  const [value, onChange] = useState<string | undefined>("");
+  const [open, setOpen] = useState(false);
   return (
     <>
-      <div>
-        <Button variant={"secondary"}>button test</Button>
-        <a href="https://vitejs.dev" target="_blank">
-          <img src={viteLogo} className="logo" alt="Vite logo" />
-        </a>
-        <a href="https://react.dev" target="_blank">
-          <img src={reactLogo} className="logo react" alt="React logo" />
-        </a>
+      <div className="space-y-12">
+        <Button variant={"secondary"} className="rounded-md">
+          button test
+        </Button>
+        <DatePicker
+          open={open}
+          onToggle={() => setOpen(!open)}
+          mode="single"
+          selected={value ? new Date(value) : undefined}
+          onSelect={(day) => {
+            onChange(day?.toISOString());
+          }}
+          defaultMonth={value ? new Date(value) : undefined}
+          //  fromYear={fromYear}
+          //  disabled={disabled}
+        />
+
+        <DateTimePicker />
       </div>
-      <h1>Vite + React</h1>
-      <div className="card">
-        <button onClick={() => setCount((count) => count + 1)}>
-          count is {count}
-        </button>
-        <p>
-          Edit <code>src/App.tsx</code> and save to test HMR
-        </p>
-      </div>
-      <p className="read-the-docs">
-        Click on the Vite and React logos to learn more
-      </p>
     </>
   );
 }
