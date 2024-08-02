@@ -3,7 +3,7 @@ Here's the README in markdown format:
 ````markdown
 # Adusei UI React Library
 
-Adusei UI is a collection of reusable React components designed to help you build modern and accessible user interfaces with ease.
+Adusei UI is a collection of reusable React components wrapped around shadcn, designed to help you build modern and accessible user interfaces with ease.
 
 # Table of Contents
 
@@ -61,12 +61,12 @@ The `Button` component is a customizable button element.
 - `children` (node): The content to be displayed inside the button.
 - `onClick` (function): Function to be called when the button is clicked.
 - `disabled` (boolean): Disables the button when set to `true`.
-- `variant` (string): The style variant of the button (`'primary'`, `'secondary'`, etc.).
+- `variant` (string): The style variant of the button (`'default'`, `'secondary'`, etc.).
 
 **Example:**
 
 ```jsx
-<Button onClick={() => alert("Button clicked!")} variant="primary">
+<Button onClick={() => alert("Button clicked!")} variant="default">
   Click Me
 </Button>
 ```
