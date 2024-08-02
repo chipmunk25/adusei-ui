@@ -28,7 +28,12 @@ class ErrorBoundary extends Component<ErrorBoundaryProps, ErrorBoundaryState> {
   render() {
     if (this.state.hasError) {
       // You can render any custom fallback UI
-      return <h1>Something went wrong: {this.state.error?.message}</h1>;
+      return (
+        <h1>
+          Something went wrong from the Layout Component:{" "}
+          {this.state.error?.message}
+        </h1>
+      );
     }
 
     return this.props.children;

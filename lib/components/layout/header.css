@@ -1,0 +1,19 @@
+.header {
+  @apply sticky top-0 z-20 flex w-full bg-white py-3 dark:bg-gray-800;
+}
+
+.header-wrapper {
+  @apply relative flex w-full items-center justify-between px-4 py-0;
+}
+
+.header-action {
+  @apply flex items-center;
+}
+
+.header-action-item {
+  @apply mx-1 cursor-pointer rounded-full p-2;
+}
+
+.header-action-item-hoverable {
+  @apply transition-colors duration-300 ease-in-out hover:bg-black hover:bg-opacity-5 hover:text-gray-900 dark:hover:bg-black dark:hover:bg-opacity-40 dark:hover:text-gray-100;
+}

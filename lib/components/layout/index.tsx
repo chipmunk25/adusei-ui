@@ -1,7 +1,8 @@
+import "./sidenav.css";
+import "./header.css";
 import { VeiliIcon, VeiliLogo } from "@/assets/logos";
 import { useEffect, useState } from "react";
 import SideNav from "./sidenav";
-
 import SideNavToggle from "./navtoggle";
 import Header from "./header";
 import UserNav from "./user-nav";
