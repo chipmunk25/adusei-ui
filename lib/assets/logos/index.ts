@@ -1,3 +1,10 @@
-export { default as VeiliIcon } from "./veiligh_new_icon.svg";
-export { default as VeiliLogo } from "./veiligh_new_logo.svg";
-export { default as VeiliDarkLogo } from "./veiligh_new_logo_dark.svg";
+export { default as IconLogo } from "./icon.svg";
+export { default as DarkLogo } from "./large_icon_dark.svg";
+export { default as LightLogo } from "./large_icon_light.svg";
+
+import LogoLight from "./large_icon_light.png";
+import LogoDark from "./large_icon_dark.png";
+import IconLight from "./icon-light.png";
+import IconDark from "./icon-dark.png";
+
+export { LogoLight, LogoDark, IconLight, IconDark };

@@ -1,15 +1,16 @@
 import "./sidenav.css";
 import "./header.css";
-import { VeiliIcon, VeiliLogo } from "@/assets/logos";
+import { IconLogo, DarkLogo } from "@/assets/logos";
 import { useEffect, useState } from "react";
 import SideNav from "./sidenav";
 import SideNavToggle from "./navtoggle";
 import Header from "./header";
 import UserNav from "./user-nav";
 import ErrorBoundary from "@/utils/error";
+import { Outlet } from "react-router-dom";
 
 interface Props {
-  children: React.ReactNode;
+  // children: React.ReactNode;
   logos?: {
     smallLogo?: React.ReactNode;
     largeLogo?: React.ReactNode;
@@ -20,7 +21,7 @@ interface Props {
     profile?: string;
   };
 }
-export const Layout = ({ logos, userInfo, children }: Props) => {
+export const Layout = ({ logos, userInfo }: Props) => {
   const [collapsed, setCollapsed] = useState(window.innerWidth <= 768);
   const [visible, setVisible] = useState(window.innerWidth > 768);
   const [drawerOpen, setDrawerOpen] = useState<boolean>(false);
@@ -76,8 +77,8 @@ export const Layout = ({ logos, userInfo, children }: Props) => {
       <div className={`fixed flex h-screen w-full flex-col bg-neutral-100`}>
         <main className="flex w-full">
           <SideNav
-            smallLogo={logos?.smallLogo || <VeiliIcon />}
-            largeLogo={logos?.largeLogo || <VeiliLogo />}
+            smallLogo={logos?.smallLogo || <IconLogo />}
+            largeLogo={logos?.largeLogo || <DarkLogo />}
             collapsed={collapsed}
             visible={visible ? visible : drawerOpen}
             drawerOpen={drawerOpen}
@@ -98,7 +99,9 @@ export const Layout = ({ logos, userInfo, children }: Props) => {
               }
               headerStart={<HeaderActionsStart />}
             />
-            <div className="h-full w-full px-8 py-9">{children}</div>
+            <div className="h-full w-full px-8 py-9">
+              <Outlet />
+            </div>
           </div>
         </main>
       </div>

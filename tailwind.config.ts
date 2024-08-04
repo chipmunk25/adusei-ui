@@ -38,9 +38,7 @@ const config = {
         "scroll-height": "calc(100vh - 50px)",
       },
       fontFamily: {
-        Regular: ["RigRegular", "sans-serif"],
-        Medium: ["RigMedium", "sans-serif"],
-        Bold: ["RigBold", "sans-serif"],
+        zain: ["Zain", "sans-serif"],
       },
       screens: {
         xs: "576",
@@ -155,6 +153,7 @@ const config = {
           100: "#C8FFFB",
         },
       },
+
       // borderRadius: {
       //   lg: "var(--radius)",
       //   md: "calc(var(--radius) - 2px)",

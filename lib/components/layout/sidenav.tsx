@@ -2,7 +2,7 @@ import { navigationItems } from "@/utils/navigation";
 import { ChevronDown, ChevronUp } from "lucide-react";
 import React, { Dispatch, SetStateAction, useState } from "react";
 import { Link, useLocation } from "react-router-dom";
-import { VeiliIcon, VeiliLogo } from "@/assets/logos";
+import { IconLight, LogoLight } from "@/assets/logos";
 
 interface SideNavProps {
   className?: string;
@@ -20,8 +20,8 @@ const SideNav: React.FC<SideNavProps> = ({
   visible,
   drawerOpen,
   closeDrawer,
-  smallLogo,
-  largeLogo,
+  // smallLogo,
+  // largeLogo,
 }) => {
   const [openItems, setOpenItems] = useState<{ [key: string]: boolean }>({});
   const location = useLocation();
@@ -55,13 +55,11 @@ const SideNav: React.FC<SideNavProps> = ({
               : ""
           }`}
         >
-          <div className="flex flex-col justify-center py-10">
+          <div className="flex flex-col justify-center py-2">
             {collapsed ? (
-              <>{smallLogo ? smallLogo : <VeiliIcon />}</>
+              <img src={IconLight} alt="logo" />
             ) : (
-              <span className="px-10">
-                {largeLogo ? largeLogo : <VeiliLogo />}
-              </span>
+              <img src={LogoLight} alt="logo" />
             )}
           </div>
 

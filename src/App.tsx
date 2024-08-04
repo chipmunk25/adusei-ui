@@ -1,14 +1,40 @@
-import "./App.css";
-import { Button, DatePicker, DateTimePicker, Layout } from "adusei-ui";
-import "adusei-ui/dist/style.css";
-import { useState } from "react";
+import { Layout } from "adusei-ui";
 
-function App() {
-  const [value, onChange] = useState<string | undefined>("");
-  const [open, setOpen] = useState(false);
-  return (
+// import { Button, DatePicker, DateTimePicker, Layout } from "adusei-ui";
+import "adusei-ui/dist/style.css";
+// import { useState } from "react";
+import {
+  createBrowserRouter,
+  createRoutesFromElements,
+  Route,
+  RouterProvider,
+} from "react-router-dom";
+
+const rootRoutes = createBrowserRouter(
+  createRoutesFromElements(
     <>
-      <Layout userInfo={{ name: "test", menuItems: [] }}>
+      <Route
+        path="/"
+        element={<Layout userInfo={{ name: "test", menuItems: [] }} />}
+      >
+        <Route
+          index
+          lazy={async () => {
+            const { default: Dashboard } = await import("./routes/dasboard");
+            return { Component: Dashboard };
+          }}
+        />
+      </Route>
+    </>
+  )
+);
+function App() {
+  // const [value, onChange] = useState<string | undefined>("");
+  // const [open, setOpen] = useState(false);
+  return (
+    <div className="w-full h-full">
+      <RouterProvider router={rootRoutes} />
+      {/* <Layout userInfo={{ name: "test", menuItems: [] }}>
         <Button variant={"secondary"} className="rounded-md">
           button test
         </Button>
@@ -26,8 +52,8 @@ function App() {
         />
 
         <DateTimePicker />
-      </Layout>
-    </>
+      </Layout> */}
+    </div>
   );
 }
 

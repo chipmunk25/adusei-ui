@@ -4,9 +4,24 @@ import { resolve } from "path";
 import react from "@vitejs/plugin-react";
 import tsconfigPaths from "vite-tsconfig-paths";
 import dts from "vite-plugin-dts";
+import svgr from "vite-plugin-svgr";
 // https://vitejs.dev/config/
 export default defineConfig({
-    plugins: [react(), tsconfigPaths(), dts({ rollupTypes: true })],
+    plugins: [
+        react(),
+        svgr({
+            // svgr options: https://react-svgr.com/docs/options/
+            svgrOptions: {
+                exportType: "default",
+                ref: true,
+                svgo: false,
+                titleProp: true,
+            },
+            include: "**/*.svg",
+        }),
+        tsconfigPaths(),
+        dts({ rollupTypes: true }),
+    ],
     resolve: {
         alias: {
             "@": resolve(__dirname, "./lib"),
