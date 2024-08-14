@@ -2,7 +2,6 @@ import { Fragment } from "react";
 
 import ActiveStep from "./active";
 import FinalStep from "./final";
-import FinalActiveStep from "./final-active-step";
 import FinalNextStep from "./final-next-step";
 import NextStep from "./next-step";
 import Step from "./step";
@@ -17,34 +16,32 @@ interface Props {
 
 export const Stepper = ({ currentStep, steps }: Props) => {
   const isFinalStep = (index: number) => index === steps.length - 1;
-  const isActiveStep = (index: number) => currentStep >= index;
   const isLastActiveStep = (index: number) =>
-    currentStep >= index && isFinalStep(index);
-  const isNextStep = (index: number) =>
-    index === currentStep + 1 && !isFinalStep(index);
-  const isLastNextStep = (index: number) =>
-    index === currentStep + 1 && isFinalStep(index);
+    currentStep === index && isFinalStep(index);
+  const isActiveStep = (index: number) => currentStep === index || index === 0;
 
+  const isCompletedStep = (index: number) => currentStep > index;
+  const isLastNotActiveStep = (index: number) => index === steps.length - 1;
   return (
     <div className="">
       <ol className="flex w-full items-center">
-        {steps?.map((item, index) => (
-          <Fragment key={index}>
-            {isLastActiveStep(index) ? (
-              <FinalActiveStep title={item.title} />
-            ) : isActiveStep(index) ? (
-              <ActiveStep title={item.title} />
-            ) : isNextStep(index) ? (
-              <NextStep title={item.title} />
-            ) : isLastNextStep(index) ? (
-              <FinalNextStep title={item.title} />
-            ) : isFinalStep(index) ? (
-              <FinalStep title={item.title} />
-            ) : (
-              <Step title={item.title} />
-            )}
-          </Fragment>
-        ))}
+        {steps?.map((item, index) => {
+          return (
+            <Fragment key={index}>
+              {isCompletedStep(index) ? (
+                <ActiveStep title={item.title} />
+              ) : isLastActiveStep(index) ? (
+                <FinalNextStep title={item.title} />
+              ) : isActiveStep(index) ? (
+                <NextStep title={item.title} />
+              ) : isLastNotActiveStep(index) ? (
+                <FinalStep title={item.title} />
+              ) : (
+                <Step title={item.title} />
+              )}
+            </Fragment>
+          );
+        })}
       </ol>
     </div>
   );
