@@ -12,6 +12,7 @@ import {
   FormEmailInput,
   FormFileInput,
   FormPasswordInput,
+  FormRadioInput,
   FormSelectInput,
   FormTextInput,
 } from ".";
@@ -162,6 +163,23 @@ const FormWizardSwitch = (formInput: FormInput) => {
               autoFocus={formInput.autoFocus}
               placeholder={formInput.placeholder}
               components={formInput.components}
+            />
+          )}
+        />
+      );
+    case InputTypes.RADIO:
+      return (
+        <Controller
+          control={formInput.control}
+          name={formInput.name}
+          render={({ field: { onChange } }) => (
+            <FormRadioInput
+              label={formInput.label}
+              required={formInput.required}
+              onChange={onChange}
+              errors={formInput.errors}
+              options={formInput.options}
+              autoFocus={formInput.autoFocus}
             />
           )}
         />
