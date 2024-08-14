@@ -14,3 +14,5 @@ export const getInitials = (name: string) => {
     .join("");
   return initials.toUpperCase();
 };
+
+export * from "./constants";
