@@ -36,7 +36,11 @@ export function DatePicker(props: Props): JSX.Element {
           <CalendarIcon className="mr-0 h-4 w-4 text-primary-500" size={20} />
         </Button>
       </PopoverTrigger>
-      <PopoverContent side="bottom" align="end" className="my-2 w-fit p-0">
+      <PopoverContent
+        side="bottom"
+        align="end"
+        className="my-2 w-fit p-0 bg-white"
+      >
         <Calendar
           captionLayout="dropdown-buttons"
           fromYear={1900}
