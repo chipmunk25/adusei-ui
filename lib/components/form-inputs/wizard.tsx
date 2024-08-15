@@ -11,6 +11,7 @@ import {
   FormDateInput,
   FormEmailInput,
   FormFileInput,
+  FormNumberInput,
   FormPasswordInput,
   FormRadioInput,
   FormSelectInput,
@@ -142,6 +143,8 @@ const FormWizardSwitch = (formInput: FormInput) => {
   switch (formInput.type) {
     case InputTypes.TEXT:
       return <FormTextInput {...formInput} />;
+    case InputTypes.NUMBER:
+      return <FormNumberInput {...formInput} />;
     case InputTypes.EMAIL:
       return <FormEmailInput {...formInput} />;
     case InputTypes.PASSWORD:
