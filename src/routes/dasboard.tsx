@@ -4,9 +4,9 @@ import { DocumentRequestDto, DocumentValidator } from "./types";
 
 const Dashboard = () => {
   const {
-    register,
+    // register,
     control,
-    handleSubmit,
+    // handleSubmit,
     formState: { errors },
   } = useForm<DocumentRequestDto>({
     resolver: DocumentValidator,
