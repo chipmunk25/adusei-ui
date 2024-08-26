@@ -1,6 +1,6 @@
 {
   "name": "adusei-ui",
-  "version": "0.1.9",
+  "version": "0.2.0",
   "type": "module",
   "files": [
     "dist"
@@ -50,6 +50,7 @@
     "lucide-react": "^0.419.0",
     "next-themes": "^0.3.0",
     "react": "^18.3.1",
+    "react-calendar": "^5.0.0",
     "react-datepicker": "^7.3.0",
     "react-day-picker": "8.10.1",
     "react-dom": "^18.3.1",

@@ -17,6 +17,21 @@ const Dashboard = () => {
       <FormWizard
         config={[
           {
+            kind: "extensive",
+            type: InputTypes.DATE,
+            label: "Date Occured",
+            name: "dateOccured",
+            control,
+            errors: {
+              message: errors.dateOccured?.message,
+              error: !!errors.dateOccured,
+            },
+            disabled: {
+              after: new Date(),
+            },
+          },
+          {
+            kind: "default",
             type: InputTypes.DATE,
             label: "Date Occured",
             name: "dateOccured",

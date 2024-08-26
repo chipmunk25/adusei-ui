@@ -19,7 +19,7 @@ export function DatePicker(props: Props): JSX.Element {
         <Button
           onClick={() => props.onToggle()}
           className={cn(
-            "h-10 w-full justify-between border-gray-300 px-3 py-2.5 text-left font-normal",
+            "h-10 w-full justify-between bg-white border-gray-300 px-3 py-2.5 text-left font-normal",
             !props.selected && "text-muted-foreground",
             props.className
           )}

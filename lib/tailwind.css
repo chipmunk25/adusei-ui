@@ -1,12 +1,37 @@
 @import url("https://fonts.googleapis.com/css2?family=Zain:wght@200;300;400;700;800;900&display=swap");
+@import "react-calendar/dist/Calendar.css";
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
 
+:root {
+  --colorBrandBackgroundInvertedHover: #ebf3fc;
+  --colorBrandForegroundOnLightHover: #115ea3;
+  --colorBrandBackground: #0f6cbd;
+  --colorSubtleBackgroundHover: hsl(0, 0%, 96%);
+  --colorNeutralForeground1Hover: hsl(0, 0%, 14%);
+  --popover: 0 0% 100%;
+  --popover-foreground: 222.2 84% 4.9%;
+}
+
+html,
+body {
+  font-family: "Zain", sans-serif;
+  -webkit-font-smoothing: grayscale;
+  -moz-osx-font-smoothing: grayscale;
+}
+.react-calendar,
+.react-calendar * {
+  font-family: "Zain", sans-serif;
+  -webkit-font-smoothing: grayscale;
+  -moz-osx-font-smoothing: grayscale;
+  font-size: 16px;
+}
 .react-calendar__navigation {
   height: 28px !important;
   line-height: 44px !important;
   margin-bottom: 0px !important;
+  gap: 4px !important;
 }
 .react-calendar__navigation button {
   min-width: 28px !important;
@@ -15,8 +40,12 @@
 }
 .react-calendar__navigation__label:hover,
 .react-calendar__navigation__arrow:hover {
-  color: var(--colorBrandForegroundOnLightHover) !important;
-  background: var(--colorBrandBackgroundInvertedHover) !important;
+  /* color: var(--colorBrandForegroundOnLightHover) !important; */
+  color: theme("colors.neutral.500") !important;
+  /* background: var(--colorBrandBackgroundInvertedHover) !important; */
+  /* background: theme("background.neutral.100") !important; */
+  background-color: theme("backgroundColor.neutral.50") !important;
+  background: theme("backgroundColor.neutral.50") !important;
 }
 .react-calendar__navigation__label {
   vertical-align: middle !important;
@@ -26,8 +55,12 @@
 }
 .react-calendar__navigation button:enabled:hover,
 .react-calendar__navigation button:enabled:focus {
-  color: var(--colorBrandForegroundOnLightHover) !important;
-  background: var(--colorBrandBackgroundInvertedHover) !important;
+  /* color: var(--colorBrandForegroundOnLightHover) !important; */
+  color: theme("colors.neutral.500") !important;
+  background-color: theme("backgroundColor.neutral.50") !important;
+  background: theme("backgroundColor.neutral.50") !important;
+
+  /* background: var(--colorBrandBackgroundInvertedHover) !important; */
 }
 .react-calendar__year-view {
   width: 100%;
@@ -48,17 +81,28 @@
 }
 .react-calendar__tile:enabled:hover,
 .react-calendar__tile:enabled:focus {
-  background-color: var(--colorBrandBackgroundInvertedHover) !important;
+  background-color: theme("backgroundColor.primary.100") !important;
   border-radius: 2px !important;
   color: var(--stroke-accent) !important;
 }
+.react-calendar__tile--active {
+  background-color: theme("backgroundColor.primary.500") !important;
+  border-radius: 6px !important;
+  color: theme("colors.white") !important;
+}
 .react-calendar__tile--hasActive {
-  background: var(--colorBrandBackground) !important;
+  background: theme("backgroundColor.primary.500");
+  background-color: theme("backgroundColor.primary.500");
+  /*  var(--colorBrandBackground) !important; */
   color: #ffffff;
   font-weight: 600;
-  border-radius: 4px !important;
+  border-radius: 6px !important;
 }
-
+.react-calendar__tile--now {
+  background-color: theme("backgroundColor.secondary.500") !important;
+  color: theme("colors.primary.500") !important;
+  border-radius: 6px;
+}
 .react-calendar__decade-view {
   width: 100%;
   max-width: 400px;

@@ -18,6 +18,7 @@ import {
   FormTextInput,
 } from ".";
 import FormMultiSelectInput from "./form-multi-select";
+import FormDate2Input from "./form-date-2";
 
 interface BaseInputProps {
   errors: ErrorProps;
@@ -53,6 +54,7 @@ type FileInputProps = BaseInputProps & {
 };
 type DateInputProps = BaseInputProps & {
   type: InputTypes.DATE;
+  kind?: "default" | "extensive";
   control: any;
   name: string;
   disabled: {
@@ -109,7 +111,6 @@ interface ButtonProps {
 export type FormInput =
   | TextInputProps
   | SelectInputProps
-  // | SearchableSelectInputProps
   | MultiInputProps
   | PhoneInputProps
   | FileInputProps
@@ -188,28 +189,6 @@ const FormWizardSwitch = (formInput: FormInput) => {
         />
       );
 
-    // case InputTypes.SEARCHABLE_SELECT:
-    //   return (
-    //     <Controller
-    //       control={formInput.control}
-    //       name={formInput.name}
-    //       render={({ field: { onChange } }) => (
-    //         <FormSearchableSelectInput
-    //           defaultValue={formInput.defaultValue}
-    //           label={formInput.label}
-    //           required={formInput.required}
-    //           onChange={onChange}
-    //           errors={formInput.errors}
-    //           options={formInput.options}
-    //           autoFocus={formInput.autoFocus}
-    //           placeholder={formInput.placeholder}
-    //           searchPlaceholder={formInput.searchPlaceholder}
-    //           prefix={formInput.prefix}
-    //         />
-    //       )}
-    //     />
-    //   );
-
     case InputTypes.MULTI:
       return (
         <Controller
@@ -252,15 +231,29 @@ const FormWizardSwitch = (formInput: FormInput) => {
           control={formInput.control}
           name={formInput.name}
           render={({ field: { onChange, value } }) => (
-            <FormDateInput
-              label={formInput.label}
-              required={formInput.required}
-              onChange={onChange}
-              value={value}
-              disabled={formInput.disabled}
-              className={formInput.className}
-              errors={formInput.errors}
-            />
+            <>
+              {formInput.kind === "extensive" ? (
+                <FormDate2Input
+                  label={formInput.label}
+                  required={formInput.required}
+                  onChange={onChange}
+                  value={value}
+                  disabled={formInput.disabled}
+                  className={formInput.className}
+                  errors={formInput.errors}
+                />
+              ) : (
+                <FormDateInput
+                  label={formInput.label}
+                  required={formInput.required}
+                  onChange={onChange}
+                  value={value}
+                  disabled={formInput.disabled}
+                  className={formInput.className}
+                  errors={formInput.errors}
+                />
+              )}
+            </>
           )}
         />
       );
