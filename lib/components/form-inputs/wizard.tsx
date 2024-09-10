@@ -11,6 +11,7 @@ import {
   FormDateInput,
   FormEmailInput,
   FormFileInput,
+  FormFilesUploadInput,
   FormNumberInput,
   FormPasswordInput,
   FormRadioInput,
@@ -45,6 +46,12 @@ type PhoneInputProps = BaseInputProps & {
   type: InputTypes.PHONE | InputTypes.OTP | InputTypes.RICHTEXT;
   control: any;
   name: string;
+};
+type FilesUploadInputProps = BaseInputProps & {
+  type: InputTypes.UPLOAD;
+  control: any;
+  name: string;
+  defaultValue: FileList | null;
 };
 type FileInputProps = BaseInputProps & {
   type: InputTypes.IMAGE | InputTypes.COLOR;
@@ -114,6 +121,7 @@ export type FormInput =
   | MultiInputProps
   | PhoneInputProps
   | FileInputProps
+  | FilesUploadInputProps
   | DateInputProps
   | RadioInputProps
   | ButtonProps;
@@ -216,6 +224,22 @@ const FormWizardSwitch = (formInput: FormInput) => {
           name={formInput.name}
           render={({ field: { onChange } }) => (
             <FormFileInput
+              defaultValue={formInput.defaultValue}
+              label={formInput.label}
+              required={formInput.required}
+              onChange={onChange}
+              errors={formInput.errors}
+            />
+          )}
+        />
+      );
+    case InputTypes.UPLOAD:
+      return (
+        <Controller
+          control={formInput.control}
+          name={formInput.name}
+          render={({ field: { onChange } }) => (
+            <FormFilesUploadInput
               defaultValue={formInput.defaultValue}
               label={formInput.label}
               required={formInput.required}

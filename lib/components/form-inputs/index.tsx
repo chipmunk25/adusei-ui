@@ -9,6 +9,8 @@ export { default as FormTextInput } from "./form-input";
 export { default as FormEmailInput } from "./form-email";
 export { default as FormPasswordInput } from "./form-password-input";
 export { default as FormFileInput } from "./form-file";
+export { default as FormFilesUploadInput } from "./form-files";
+
 // export { default as FormPhoneInput } from "./form-phone";
 export { default as FormSelectInput } from "./form-select";
 export { default as FormDateInput } from "./form-date";
