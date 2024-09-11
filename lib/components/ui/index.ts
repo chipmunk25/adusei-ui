@@ -34,4 +34,5 @@ export * from "./textarea";
 export * from "./tooltip";
 export * from "./special-dropdown";
 export * from "./stepper";
+export * from "./stepper2";
 export * from "./upload";
