@@ -19,7 +19,7 @@ interface Props {
   }[];
 }
 
-export const Stepper2 = ({
+export const NoIconStepper = ({
   currentStep,
   setCurrentStep,
   steps,
