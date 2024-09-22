@@ -102,7 +102,7 @@ const MenuBar = ({ editor }: { editor: Editor | null }) => {
             <CompactPicker
               className=""
               color={editor.getAttributes("textStyle").color}
-              onChange={(color) => {
+              onChange={(color: any) => {
                 editor.chain().focus().setColor(color.hex).run();
               }}
             />
