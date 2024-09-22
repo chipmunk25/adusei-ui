@@ -5,7 +5,7 @@ import { Input } from "../input";
 import { Button } from "../button";
 import { Label } from "../label";
 import { Icon } from "../icon";
-import { cn } from "~/lib/utils";
+import { cn } from "@/utils";
 import { Editor } from "@tiptap/react";
 
 const LinkPopover = ({ editor }: { editor: Editor | null }) => {

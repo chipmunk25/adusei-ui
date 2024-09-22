@@ -1,6 +1,6 @@
 import { icons } from "lucide-react";
 import { Icon } from "../icon";
-import { cn } from "~/lib/utils";
+import { cn } from "@/utils";
 
 interface IProps {
   title?: string;

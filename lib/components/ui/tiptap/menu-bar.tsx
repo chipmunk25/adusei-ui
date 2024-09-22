@@ -1,5 +1,5 @@
 import { Icon } from "../icon";
-import { cn } from "~/lib/utils";
+import { cn } from "@/utils";
 import { Popover, PopoverContent, PopoverTrigger } from "../popover";
 import { Button } from "../button";
 import { CompactPicker } from "react-color";
