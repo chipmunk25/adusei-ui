@@ -15,7 +15,9 @@ import {
   FormNumberInput,
   FormPasswordInput,
   FormRadioInput,
+  FormRichtextInput,
   FormSelectInput,
+  FormTextareaInput,
   FormTextInput,
 } from ".";
 import FormMultiSelectInput from "./form-multi-select";
@@ -33,6 +35,7 @@ interface BaseInputProps {
 type TextInputProps = BaseInputProps & {
   type:
     | InputTypes.TEXT
+    | InputTypes.TEXTAREA
     | InputTypes.EMAIL
     | InputTypes.PASSWORD
     | InputTypes.NUMBER;
@@ -154,6 +157,24 @@ const FormWizardSwitch = (formInput: FormInput) => {
       return <FormTextInput {...formInput} />;
     case InputTypes.NUMBER:
       return <FormNumberInput {...formInput} />;
+    case InputTypes.TEXTAREA:
+      return <FormTextareaInput {...formInput} />;
+
+    case InputTypes.RICHTEXT:
+      return (
+        <Controller
+          control={formInput.control}
+          name={formInput.name}
+          render={({ field }) => (
+            <FormRichtextInput
+              label={formInput.label}
+              required={formInput.required}
+              errors={formInput.errors}
+              field={field}
+            />
+          )}
+        />
+      );
     case InputTypes.EMAIL:
       return <FormEmailInput {...formInput} />;
     case InputTypes.PASSWORD:

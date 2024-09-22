@@ -36,3 +36,4 @@ export * from "./special-dropdown";
 export * from "./stepper";
 export * from "./stepper2";
 export * from "./upload";
+export * from "./tiptap";

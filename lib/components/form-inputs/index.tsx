@@ -17,4 +17,6 @@ export { default as FormDateInput } from "./form-date";
 export { default as FormRadioInput } from "./form-radio";
 export { default as FormNumberInput } from "./form-number";
 export { default as FormMonthInput } from "./form-month";
+export { default as FormTextareaInput } from "./form-textarea";
+export { default as FormRichtextInput } from "./form-richtext";
 export { default as FormWizard } from "./wizard";
