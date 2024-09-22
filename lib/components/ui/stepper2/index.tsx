@@ -17,6 +17,11 @@ interface Props {
     title: string;
     description: string;
   }[];
+  classNames?: {
+    activeClassName?: string;
+    inActiveClassName?: string;
+    completedClassName?: string;
+  };
 }
 
 export const NoIconStepper = ({
@@ -26,6 +31,7 @@ export const NoIconStepper = ({
   children,
   leftBtns,
   rightBtns,
+  classNames,
 }: Props) => {
   const isFinalStep = (index: number) => index === steps.length - 1;
   const isLastActiveStep = (index: number) =>
@@ -54,15 +60,30 @@ export const NoIconStepper = ({
           return (
             <Fragment key={index}>
               {isCompletedStep(index) ? (
-                <ActiveStep title={item.title} />
+                <ActiveStep
+                  className={classNames?.completedClassName}
+                  title={item.title}
+                />
               ) : isLastActiveStep(index) ? (
-                <FinalNextStep title={item.title} />
+                <FinalNextStep
+                  className={classNames?.activeClassName}
+                  title={item.title}
+                />
               ) : isActiveStep(index) ? (
-                <NextStep title={item.title} />
+                <NextStep
+                  className={classNames?.activeClassName}
+                  title={item.title}
+                />
               ) : isLastNotActiveStep(index) ? (
-                <FinalStep title={item.title} />
+                <FinalStep
+                  className={classNames?.inActiveClassName}
+                  title={item.title}
+                />
               ) : (
-                <Step title={item.title} />
+                <Step
+                  className={classNames?.inActiveClassName}
+                  title={item.title}
+                />
               )}
             </Fragment>
           );
