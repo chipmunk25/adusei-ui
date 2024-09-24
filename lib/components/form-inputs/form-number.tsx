@@ -24,6 +24,7 @@ export default function FormNumberInput({
       autoFocus={autoFocus}
       type="number"
       step="0.01"
+      register={register}
       // onWheel={(e: {
       //   currentTarget: { blur: () => void };
       //   stopPropagation: () => void;
@@ -35,7 +36,6 @@ export default function FormNumberInput({
       onWheel={(e: any) => {
         e.preventDefault(); // Prevents changing the value when scrolling
       }}
-      {...register}
       className={cn("text-base", { "border-danger-500": errors?.error })}
     />
   );

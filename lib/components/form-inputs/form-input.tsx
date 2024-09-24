@@ -4,7 +4,7 @@ import { cn } from "@/utils";
 import { ErrorProps, FormError } from ".";
 import { Input } from "../ui";
 
-interface FormInputProps {
+interface FormInputProps extends React.InputHTMLAttributes<HTMLInputElement> {
   autoFocus?: boolean;
   readOnly?: boolean;
   label?: string;
