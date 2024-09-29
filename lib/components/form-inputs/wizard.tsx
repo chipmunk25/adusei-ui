@@ -72,7 +72,7 @@ type DateInputProps = BaseInputProps & {
   };
 };
 type SelectInputProps = BaseInputProps & {
-  type: InputTypes.SELECT;
+  type: InputTypes.SELECT | InputTypes.MULTIPLE;
   control?: any;
   name: string;
   options: Option[];
@@ -179,6 +179,7 @@ const FormWizardSwitch = (formInput: FormInput) => {
       return <FormEmailInput {...formInput} />;
     case InputTypes.PASSWORD:
       return <FormPasswordInput {...formInput} />;
+
     case InputTypes.SELECT:
       return (
         <Controller
@@ -187,6 +188,27 @@ const FormWizardSwitch = (formInput: FormInput) => {
           render={({ field: { onChange } }) => (
             <FormSelectInput
               isMulti={false}
+              defaultValue={formInput.defaultValue}
+              label={formInput.label}
+              required={formInput.required}
+              onChange={onChange}
+              errors={formInput.errors}
+              options={formInput.options}
+              autoFocus={formInput.autoFocus}
+              placeholder={formInput.placeholder}
+              components={formInput.components}
+            />
+          )}
+        />
+      );
+    case InputTypes.MULTIPLE:
+      return (
+        <Controller
+          control={formInput.control}
+          name={formInput.name}
+          render={({ field: { onChange } }) => (
+            <FormSelectInput
+              isMulti={true}
               defaultValue={formInput.defaultValue}
               label={formInput.label}
               required={formInput.required}

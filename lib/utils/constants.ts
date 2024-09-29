@@ -11,6 +11,7 @@ export enum InputTypes {
   PASSWORD = "password",
   PHONE = "phone",
   SELECT = "select",
+  MULTIPLE = "multiple",
   MULTI = "multi",
   DATE = "date",
   RANGE = "daterange",
