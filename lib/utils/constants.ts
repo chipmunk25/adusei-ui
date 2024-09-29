@@ -10,6 +10,7 @@ export enum InputTypes {
   NUMBER = "number",
   PASSWORD = "password",
   PHONE = "phone",
+  MOMENT = "moment",
   SELECT = "select",
   MULTIPLE = "multiple",
   MULTI = "multi",

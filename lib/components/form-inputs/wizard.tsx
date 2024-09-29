@@ -12,6 +12,7 @@ import {
   FormEmailInput,
   FormFileInput,
   FormFilesUploadInput,
+  FormMomentInput,
   FormNumberInput,
   FormPasswordInput,
   FormRadioInput,
@@ -37,6 +38,7 @@ type TextInputProps = BaseInputProps & {
     | InputTypes.TEXT
     | InputTypes.TEXTAREA
     | InputTypes.EMAIL
+    | InputTypes.MOMENT
     | InputTypes.PASSWORD
     | InputTypes.NUMBER;
   register: any;
@@ -159,6 +161,8 @@ const FormWizardSwitch = (formInput: FormInput) => {
       return <FormNumberInput {...formInput} />;
     case InputTypes.TEXTAREA:
       return <FormTextareaInput {...formInput} />;
+    case InputTypes.TEXTAREA:
+      return <FormMomentInput {...formInput} />;
 
     case InputTypes.RICHTEXT:
       return (
