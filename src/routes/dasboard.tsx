@@ -4,47 +4,39 @@ import { DocumentRequestDto, DocumentValidator } from "./types";
 
 const Dashboard = () => {
   const {
-    register,
+    // register,
     control,
-    // handleSubmit,
+    handleSubmit,
     formState: { errors },
   } = useForm<DocumentRequestDto>({
     resolver: DocumentValidator,
     mode: "onSubmit",
   });
+
+  const onSubmit = (values: any) => {
+    console.log(values);
+  };
   return (
-    <div>
+    <form onSubmit={handleSubmit(onSubmit)}>
       <FormWizard
         config={[
+          // {
+          //   kind: "extensive",
+          //   type: InputTypes.DATE,
+          //   label: "Date Occured",
+          //   name: "dateOccured",
+          //   control,
+          //   errors: {
+          //     message: errors.dateOccured?.message,
+          //     error: !!errors.dateOccured,
+          //   },
+          //   disabled: {
+          //     after: new Date(),
+          //   },
+          // },
+
           {
-            kind: "extensive",
-            type: InputTypes.DATE,
-            label: "Date Occured",
-            name: "dateOccured",
-            control,
-            errors: {
-              message: errors.dateOccured?.message,
-              error: !!errors.dateOccured,
-            },
-            disabled: {
-              after: new Date(),
-            },
-          },
-          {
-            register: { ...register("dateOccured") },
-            label: "Estimated Time",
-            placeholder: "Select Time",
             type: InputTypes.MOMENT,
-            autoFocus: true,
-            required: true,
-            errors: {
-              message: errors.dateOccured?.message,
-              error: !!errors.dateOccured,
-            },
-          },
-          {
-            kind: "default",
-            type: InputTypes.DATE,
             label: "Date Occured",
             name: "dateOccured",
             control,
@@ -52,15 +44,14 @@ const Dashboard = () => {
               message: errors.dateOccured?.message,
               error: !!errors.dateOccured,
             },
-            disabled: {
-              after: new Date(),
-            },
+          },
+          {
+            type: InputTypes.SUBMIT,
+            title: "Submit",
           },
         ]}
       />
-
-      {/* <Stepper2></Stepper2> */}
-    </div>
+    </form>
   );
 };
 

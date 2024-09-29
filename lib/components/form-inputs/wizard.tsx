@@ -38,7 +38,6 @@ type TextInputProps = BaseInputProps & {
     | InputTypes.TEXT
     | InputTypes.TEXTAREA
     | InputTypes.EMAIL
-    | InputTypes.MOMENT
     | InputTypes.PASSWORD
     | InputTypes.NUMBER;
   register: any;
@@ -48,7 +47,11 @@ type TextInputProps = BaseInputProps & {
 };
 
 type PhoneInputProps = BaseInputProps & {
-  type: InputTypes.PHONE | InputTypes.OTP | InputTypes.RICHTEXT;
+  type:
+    | InputTypes.PHONE
+    | InputTypes.OTP
+    | InputTypes.RICHTEXT
+    | InputTypes.MOMENT;
   control: any;
   name: string;
 };
@@ -162,7 +165,21 @@ const FormWizardSwitch = (formInput: FormInput) => {
     case InputTypes.TEXTAREA:
       return <FormTextareaInput {...formInput} />;
     case InputTypes.MOMENT:
-      return <FormMomentInput {...formInput} />;
+      return (
+        <Controller
+          control={formInput.control}
+          name={formInput.name}
+          render={({ field: { onChange, value } }) => (
+            <FormMomentInput
+              label={formInput.label}
+              required={formInput.required}
+              errors={formInput.errors}
+              value={value}
+              onChange={onChange}
+            />
+          )}
+        />
+      );
 
     case InputTypes.RICHTEXT:
       return (
