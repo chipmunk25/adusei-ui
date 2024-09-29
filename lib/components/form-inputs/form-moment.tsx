@@ -268,9 +268,9 @@ const MomentInput = ({
   placeholder,
 }: Props) => (
   <div>
-    <label className="space-y-1 capitalize">
+    <div className="space-y-1 capitalize text-left">
       <div
-        className={cn("text-base font-medium", {
+        className={cn("text-sm font-medium", {
           "text-danger-500": errors?.error,
         })}
       >
@@ -291,6 +291,6 @@ const MomentInput = ({
         />
       </div>
       <FormError error={errors?.error} message={errors?.message} />
-    </label>
+    </div>
   </div>
 );
