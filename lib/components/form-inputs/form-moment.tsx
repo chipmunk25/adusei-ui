@@ -14,7 +14,7 @@ interface FormInputProps {
   suffix?: keyof typeof icons;
   suffixClass?: string;
 }
-export default function FormMpmentInput({
+export default function FormMomentInput({
   label,
   required,
   errors,
@@ -42,7 +42,7 @@ export default function FormMpmentInput({
           required={required}
           errors={errors}
           autoFocus={autoFocus}
-          type="email"
+          type="text"
           register={register}
           placeholder={placeholder}
           suffix={suffix}
