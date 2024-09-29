@@ -1,4 +1,5 @@
 import { icons } from "lucide-react";
+import { formatTime } from "@/utils";
 
 import { ErrorProps, FormTextInput } from ".";
 import { Popover, PopoverTrigger, PopoverContent, Label, Slider } from "../ui";
@@ -46,7 +47,7 @@ export default function FormMpmentInput({
           placeholder={placeholder}
           suffix={suffix}
           suffixClass={suffixClass}
-          value={`${hours} hours ${minutes} minutes`}
+          value={formatTime(hours, minutes)}
         />
       </PopoverTrigger>
       <PopoverContent align="start" className="w-80 overflow-hidden space-y-4">
