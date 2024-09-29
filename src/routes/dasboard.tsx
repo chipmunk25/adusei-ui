@@ -1,4 +1,4 @@
-import { FormMomentInput, FormWizard, InputTypes } from "adusei-ui";
+import { FormWizard, InputTypes } from "adusei-ui";
 import { useForm } from "react-hook-form";
 import { DocumentRequestDto, DocumentValidator } from "./types";
 
@@ -14,13 +14,6 @@ const Dashboard = () => {
   });
   return (
     <div>
-      <div className="py-12">
-        <FormMomentInput
-          label="Date Occured"
-          register={register("dateOccured")}
-          placeholder="Enter Date Occured"
-        />
-      </div>
       <FormWizard
         config={[
           {
@@ -35,6 +28,18 @@ const Dashboard = () => {
             },
             disabled: {
               after: new Date(),
+            },
+          },
+          {
+            register: { ...register("dateOccured") },
+            label: "Estimated Time",
+            placeholder: "Select Time",
+            type: InputTypes.MOMENT,
+            autoFocus: true,
+            required: true,
+            errors: {
+              message: errors.dateOccured?.message,
+              error: !!errors.dateOccured,
             },
           },
           {
