@@ -161,7 +161,7 @@ const FormWizardSwitch = (formInput: FormInput) => {
       return <FormNumberInput {...formInput} />;
     case InputTypes.TEXTAREA:
       return <FormTextareaInput {...formInput} />;
-    case InputTypes.TEXTAREA:
+    case InputTypes.MOMENT:
       return <FormMomentInput {...formInput} />;
 
     case InputTypes.RICHTEXT:
