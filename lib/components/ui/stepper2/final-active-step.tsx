@@ -1,9 +1,10 @@
 interface Props {
   title: string;
+  onClick?: () => void;
 }
-const FinalActiveStep = ({ title }: Props) => {
+const FinalActiveStep = ({ title, onClick }: Props) => {
   return (
-    <li className="w-full">
+    <li className="w-full hover:cursor-pointer" onClick={onClick}>
       <div className="pb-2">
         <span className="text-base font-medium">{title}</span>
       </div>

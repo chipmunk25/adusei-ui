@@ -2,10 +2,11 @@ import { Icon } from "../icon";
 
 interface Props {
   title: string;
+  onClick?: () => void;
 }
-const FinalActiveStep = ({ title }: Props) => {
+const FinalActiveStep = ({ title,onClick }: Props) => {
   return (
-    <li className="w-full">
+    <li className="w-full hover:cursor-pointer" onClick={onClick}>
       <div className="flex w-full items-center">
         <div className="h-9 w-9 rounded-full bg-info-500 p-1.5">
           <Icon

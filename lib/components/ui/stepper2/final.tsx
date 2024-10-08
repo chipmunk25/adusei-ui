@@ -3,10 +3,11 @@ import { cn } from "@/utils";
 interface Props {
   title: string;
   className?: string;
+  onClick?: () => void;
 }
-const FinalStep = ({ title, className }: Props) => {
+const FinalStep = ({ title, className ,onClick}: Props) => {
   return (
-    <li className="w-full">
+    <li className="w-full hover:cursor-pointer" onClick={onClick}>
       <div className="pb-2">
         <span className="text-base font-medium">{title}</span>
       </div>

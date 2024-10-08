@@ -1,9 +1,10 @@
 interface Props {
   title: string;
+  onClick?: () => void;
 }
-const Step = ({ title }: Props) => {
+const Step = ({ title, onClick }: Props) => {
   return (
-    <li className="w-full">
+    <li className="w-full hover:cursor-pointer" onClick={onClick}>
       <div className="flex w-full items-center after:inline-block after:h-1 after:w-full after:border-4 after:border-b after:border-neutral-200 after:content-['']">
         <div className="flex h-9 w-9 items-center justify-center rounded-full border-2 border-neutral-200 bg-white p-2 text-white">
           NA

@@ -63,26 +63,31 @@ export const NoIconStepper = ({
                 <ActiveStep
                   className={classNames?.completedClassName}
                   title={item.title}
+                  onClick={() => setCurrentStep(index)}
                 />
               ) : isLastActiveStep(index) ? (
                 <FinalNextStep
                   className={classNames?.activeClassName}
                   title={item.title}
+                  onClick={() => setCurrentStep(index)}
                 />
               ) : isActiveStep(index) ? (
                 <NextStep
                   className={classNames?.activeClassName}
                   title={item.title}
+                  onClick={() => setCurrentStep(index)}
                 />
               ) : isLastNotActiveStep(index) ? (
                 <FinalStep
                   className={classNames?.inActiveClassName}
                   title={item.title}
+                  onClick={() => setCurrentStep(index)}
                 />
               ) : (
                 <Step
                   className={classNames?.inActiveClassName}
                   title={item.title}
+                  onClick={() => setCurrentStep(index)}
                 />
               )}
             </Fragment>

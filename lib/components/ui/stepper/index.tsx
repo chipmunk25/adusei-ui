@@ -8,13 +8,15 @@ import Step from "./step";
 
 interface Props {
   currentStep: number;
+  setCurrentStep?: (value: React.SetStateAction<number>) => void;
+
   steps: {
     title: string;
     description: string;
   }[];
 }
 
-export const Stepper = ({ currentStep, steps }: Props) => {
+export const Stepper = ({ currentStep, steps, setCurrentStep }: Props) => {
   const isFinalStep = (index: number) => index === steps.length - 1;
   const isLastActiveStep = (index: number) =>
     currentStep === index && isFinalStep(index);
@@ -29,15 +31,40 @@ export const Stepper = ({ currentStep, steps }: Props) => {
           return (
             <Fragment key={index}>
               {isCompletedStep(index) ? (
-                <ActiveStep title={item.title} />
+                <ActiveStep
+                  title={item.title}
+                  onClick={() => {
+                    if (setCurrentStep) setCurrentStep(index);
+                  }}
+                />
               ) : isLastActiveStep(index) ? (
-                <FinalNextStep title={item.title} />
+                <FinalNextStep
+                  title={item.title}
+                  onClick={() => {
+                    if (setCurrentStep) setCurrentStep(index);
+                  }}
+                />
               ) : isActiveStep(index) ? (
-                <NextStep title={item.title} />
+                <NextStep
+                  title={item.title}
+                  onClick={() => {
+                    if (setCurrentStep) setCurrentStep(index);
+                  }}
+                />
               ) : isLastNotActiveStep(index) ? (
-                <FinalStep title={item.title} />
+                <FinalStep
+                  title={item.title}
+                  onClick={() => {
+                    if (setCurrentStep) setCurrentStep(index);
+                  }}
+                />
               ) : (
-                <Step title={item.title} />
+                <Step
+                  title={item.title}
+                  onClick={() => {
+                    if (setCurrentStep) setCurrentStep(index);
+                  }}
+                />
               )}
             </Fragment>
           );
