@@ -78,7 +78,7 @@ type DateInputProps = BaseInputProps & {
   };
 };
 type SelectInputProps = BaseInputProps & {
-  type: InputTypes.SELECT | InputTypes.MULTIPLE;
+  type: InputTypes.SELECT;
   control?: any;
   name: string;
   options: Option[];
@@ -86,6 +86,16 @@ type SelectInputProps = BaseInputProps & {
   value?: Option;
   components?: Partial<SelectComponents>;
 };
+type MultiSelectInputProps = BaseInputProps & {
+  type: InputTypes.MULTIPLE;
+  control?: any;
+  name: string;
+  options: Option[];
+  defaultValue?: Option[];
+  value?: Option[];
+  components?: Partial<SelectComponents>;
+};
+
 // type SearchableSelectInputProps = BaseInputProps & {
 //   type: InputTypes.SEARCHABLE_SELECT;
 //   control?: any;
@@ -127,6 +137,7 @@ interface ButtonProps {
 export type FormInput =
   | TextInputProps
   | SelectInputProps
+  | MultiSelectInputProps
   | MultiInputProps
   | PhoneInputProps
   | FileInputProps

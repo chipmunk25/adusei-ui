@@ -14,17 +14,18 @@ type Props = {
   required?: boolean;
   errors?: ErrorProps;
   options: Option[];
-  defaultValue?: Option;
   placeholder?: string;
   components?: Partial<SelectComponents>;
 } & (
   | {
       isMulti: false;
       onChange: (option: Option) => void;
+      defaultValue?: Option;
     }
   | {
       isMulti: true;
       onChange: (option: Option[]) => void;
+      defaultValue?: Option[];
     }
 );
 export default function FormSelectInput({
