@@ -54,6 +54,7 @@ type PhoneInputProps = BaseInputProps & {
     | InputTypes.MOMENT;
   control: any;
   name: string;
+  defaultValue?: string;
 };
 type FilesUploadInputProps = BaseInputProps & {
   type: InputTypes.UPLOAD;
@@ -171,6 +172,7 @@ const FormWizardSwitch = (formInput: FormInput) => {
           name={formInput.name}
           render={({ field: { onChange, value } }) => (
             <FormMomentInput
+              defaultValue={formInput.defaultValue}
               label={formInput.label}
               required={formInput.required}
               errors={formInput.errors}

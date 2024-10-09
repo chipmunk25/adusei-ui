@@ -154,6 +154,7 @@ interface Props {
   required?: boolean;
   errors?: ErrorProps;
   value?: string | undefined;
+  defaultValue?: string | undefined;
   onChange: (option: string | undefined) => void;
   placeholder?: string;
 }
@@ -164,6 +165,7 @@ export default function FormMomentInput({
   value,
   onChange,
   placeholder,
+  defaultValue,
 }: Props) {
   const [hours, setHours] = useState(0);
   const [minutes, setMinutes] = useState(0);
@@ -188,6 +190,7 @@ export default function FormMomentInput({
       <PopoverTrigger className="w-full p-0 py-0">
         <MomentInput
           value={value}
+          defaultValue={defaultValue}
           onChange={onChange}
           label={label}
           errors={errors}
@@ -266,6 +269,7 @@ const MomentInput = ({
   value,
   onChange,
   placeholder,
+  defaultValue,
 }: Props) => (
   <div>
     <div className="space-y-1 capitalize text-left">
@@ -279,6 +283,7 @@ const MomentInput = ({
 
       <div>
         <Input
+          defaultValue={defaultValue}
           readOnly={true}
           value={value}
           prefix={"Watch"}
